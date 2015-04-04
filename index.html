@@ -52,7 +52,12 @@
 		document.addEventListener('keydown', function(event){
 			if(event.keyCode==37) leftArrowDown = true;
 			if(event.keyCode==39) rightArrowDown = true;
-		})
+		});
+
+		document.addEventListener('keyup', function(event){
+			if(event.keyCode==37) leftArrowDown = false;
+			if(event.keyCode==39) rightArrowDown = false;
+		});
 	</script>
 </head>
 <body>
