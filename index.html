@@ -41,6 +41,12 @@
 
 		function gameloop(){
 			// HORIZONTAL MOVEMENT
+			if(leftArrowDown){
+				pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+			}
+			if(rightArrowDown){
+				pc.style.left = parseInt(pc.style.left) + 5 + 'px';
+			}
 		}
 	</script>
 </head>
