@@ -16,6 +16,33 @@
 			background-color: red;
 		}
 	</style>
+
+	<script type="text/javascript">
+		var pc;
+		var output;
+		var leftArrowDown = false;
+		var rightArrowDown = false;
+		var gameTimer;
+
+		const GRAVITY = 1;
+		var fallSpeed = 0;
+
+		function init(){
+			output = document.getElementById('output');
+
+			pc = document.getElementById('pc');
+			pc.style.left = '190px';
+			pc.style.top = '50px';
+			pc.style.width = '20px';
+			pc.style.height = '20px';
+
+			gameTimer = setInterval(gameloop, 50);
+		}
+
+		function gameloop(){
+			// HORIZONTAL MOVEMENT
+		}
+	</script>
 </head>
 <body>
 
