@@ -1,70 +1,74 @@
+<!DOCTYPE html>
 <html>
-<head>
-	<title>Platformer</title>
-	<script src="myGameLibrary.js"></script>
-	<style type="text/css">
-		#gameWindow{
-			position: relative;
-			width: 800px;
-			height: 400px;
-			background-color: black;
-		}
+	<head>
+		<title>Platformer</title>
+		<script src="myGameLibrary.js"></script>
 
-		#pc{
-			position: absolute;
-			border-radius: 10px;
-			background-color: red;
-		}
-	</style>
-
-	<script type="text/javascript">
-		var pc;
-		var output;
-		var leftArrowDown = false;
-		var rightArrowDown = false;
-		var gameTimer;
-
-		const GRAVITY = 1;
-		var fallSpeed = 0;
-
-		function init(){
-			output = document.getElementById('output');
-
-			pc = document.getElementById('pc');
-			pc.style.left = '190px';
-			pc.style.top = '50px';
-			pc.style.width = '20px';
-			pc.style.height = '20px';
-
-			gameTimer = setInterval(gameloop, 50);
-		}
-
-		function gameloop(){
-			// HORIZONTAL MOVEMENT
-			if(leftArrowDown){
-				pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+		<style type="text/css">
+			#gameWindow{
+				position: relative;
+				width: 800px;
+				height: 400px;
+				background-color: black;
 			}
-			if(rightArrowDown){
-				pc.style.left = parseInt(pc.style.left) + 5 + 'px';
+
+			#pc{
+				position: absolute;
+				border-radius: 10px;
+				background-color: red;
 			}
-		}
+		</style>
 
-		document.addEventListener('keydown', function(event){
-			if(event.keyCode==37) leftArrowDown = true;
-			if(event.keyCode==39) rightArrowDown = true;
-		});
+		<script type="text/javascript">
+			var pc;
+			var output;
+			var leftArrowDown = false;
+			var rightArrowDown = false;
+			var gameTimer;
 
-		document.addEventListener('keyup', function(event){
-			if(event.keyCode==37) leftArrowDown = false;
-			if(event.keyCode==39) rightArrowDown = false;
-		});
-	</script>
-</head>
-<body onload="init()">
-	<div id="gameWindow">
-		<div id="pc"></div>
-	</div>
-	<div id="output"></div>
+			const GRAVITY = 1;
+			var fallSpeed = 0;
 
-</body>
+			function init(){
+				output = document.getElementById('output');
+
+				pc = document.getElementById('pc');
+				pc.style.left = '190px';
+				pc.style.top = '50px';
+				pc.style.width = '20px';
+				pc.style.height = '20px';
+
+				gameTimer = setInterval(gameloop, 50);
+			}
+
+			function gameloop(){
+				// HORIZONTAL MOVEMENT
+				if(leftArrowDown){
+					pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+				}
+				if(rightArrowDown){
+					pc.style.left = parseInt(pc.style.left) + 5 + 'px';	
+				}
+
+			}
+
+			document.addEventListener('keydown', function(event){
+				if(event.keyCode==37) leftArrowDown = true;
+				if(event.keyCode==39) rightArrowDown = true;
+			});
+
+			document.addEventListener('keyup', function(event){
+				if(event.keyCode==37) leftArrowDown = false;
+				if(event.keyCode==39) rightArrowDown = false;
+			});
+		</script>
+	</head>
+	<body onload="init()">
+
+		<div id="gameWindow">
+			<div id="pc"></div>
+		</div>
+		<div id="output"></div>
+
+	</body>
 </html>
