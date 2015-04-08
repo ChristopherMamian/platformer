@@ -17,6 +17,12 @@
 				border-radius: 10px;
 				background-color: red;
 			}
+
+			.platform{
+				position: absolute;
+				background-color: orange;
+				border-radius: 5px;
+			}
 		</style>
 
 		<script type="text/javascript">
@@ -28,6 +34,7 @@
 
 			const GRAVITY = 1;
 			var fallSpeed = 0;
+			var platforms;
 
 			function init(){
 				output = document.getElementById('output');
@@ -38,7 +45,23 @@
 				pc.style.width = '20px';
 				pc.style.height = '20px';
 
+				platforms = new Array();
+				addPlatform(0, 380, 500, 20);
+
 				gameTimer = setInterval(gameloop, 50);
+			}
+
+			function addPlatform(x, y, w, h){
+				var p = document.createElement('DIV');
+				p.className = 'platform';
+				p.style.left = x + 'px';
+				p.style.top = y + 'px';
+				p.style.width = w + 'px';
+				p.style.height = h + 'px';
+
+				platforms.push(p);
+				gameWindow.appendChild(p);
+
 			}
 
 			function gameloop(){
