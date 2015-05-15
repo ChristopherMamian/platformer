@@ -30,6 +30,7 @@
 			var output;
 			var leftArrowDown = false;
 			var rightArrowDown = false;
+			var upArrowDown = false;
 			var gameTimer;
 
 			const GRAVITY = 1;
@@ -47,6 +48,7 @@
 
 				platforms = new Array();
 				addPlatform(0, 380, 500, 20);
+				addPlatform(150, 300, 100, 20);
 
 				gameTimer = setInterval(gameloop, 50);
 			}
@@ -89,11 +91,13 @@
 			document.addEventListener('keydown', function(event){
 				if(event.keyCode==37) leftArrowDown = true;
 				if(event.keyCode==39) rightArrowDown = true;
+				if(event.keyCode==38) upArrowDown = true;
 			});
 
 			document.addEventListener('keyup', function(event){
 				if(event.keyCode==37) leftArrowDown = false;
 				if(event.keyCode==39) rightArrowDown = false;
+				if(event.keyCode==38) upArrowDown = false;
 			});
 		</script>
 	</head>
